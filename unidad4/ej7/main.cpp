@@ -9,31 +9,34 @@
 
 using namespace std;
 
-void maxcalculator(int vector[], int dim, int &pos, int &pos2);
+void maxcalculator(int vector[], int dim, int pos[]);
 
 int main()
 {
     const int dim = 10;
+    const int dim2 = 2;
     int vector[dim]{6, 1, 3, 7, 9, 4, 10, 2, 8, 5};
-    int pos = 0, pos2 = 1;
-    maxcalculator(vector, dim, pos, pos);
-    cout << "el maximo es: " << vector[pos] << " posicion: " << pos;
-    cout << "el segundo maximo es: " << vector[pos2] << " posicion: " << pos2;
+    int pos[dim2]{0};
+    maxcalculator(vector, dim, pos);
+    cout << "el maximo es: " << vector[pos[0]] << " posicion: " << pos[0];
+    cout << "el segundo maximo es: " << vector[pos[1]] << " posicion: " << pos[1];
+    return 0;
 }
 
-void maxcalculator(int vector[], int dim, int &pos, int &pos2)
+void maxcalculator(int vector[], int dim, int pos[])
 {
 
-    int max = vector[0] > vector[1] ? vector[0] : vector[1];
-    int max2;
+    int max = vector[0];
+    int aux = 0;
 
     for (int a = 1; a < dim; a++)
     {
         if (vector[a] > max)
         {
             max = vector[a];
-            pos = a;
-            // ! Terminar
+            aux = pos[0];
+            pos[0] = a;
+            pos[1] = aux;
         }
     }
 }

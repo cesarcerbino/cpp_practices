@@ -16,6 +16,7 @@ int main()
     int valorMax = valorMaximo(vector, dim, posicion);
     cout << "el valor maximo es :" << valorMax << endl;
     cout << "y su posicion es : " << posicion << endl;
+    return 0;
 }
 
 int valorMaximo(int vector[], int dim, int &posicion)
